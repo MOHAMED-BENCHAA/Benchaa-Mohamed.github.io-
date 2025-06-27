@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détails Projet MPLS</title>
+     <link rel="icon" type="image/png" href="Photo/MPLS.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="project-detail">
+        <h1>Simulation MPLS</h1>
+        <div class="detail-content">
+            <div class="text-content">
+                <h2>Architecture du réseau</h2>
+                <p>Topologie à 8 routeurs avec :</p>
+                <ul>
+                    <li>R1 et R4 Routeur P (provider)</li>
+                    <li>R2 et R3 Routeur PE (provider Edge)</li>
+                    <li>R5 R6 R7 et R8 Routeur CE (Customer Edge)</li>
+                </ul>
+            <h2>Configuration du routeur R1 (Provider)</h2>
+            <div class="router-config">
+               
+                <div class="router-commands">
+                    <pre><code>
+                        R1>enable
+                        R1#configure terminal
+                        R1(config)#interface fastEthernet0/1
+                        R1(config-if)#ip address 100.12.0.1 255.255.255.252
+                        R1(config-if)#no shutdown
+                        R1(config-if)#exit
+                        R1(config)#interface fastEthernet0/0
+                        R1(config-if)#ip address 100.13.0.1 255.255.255.252
+                        R1(config-if)#no shutdown
+                        R1(config-if)#exit
+                        R1(config)#interface loopback0
+                        R1(config-if)#ip address 1.1.1.1 255.255.255.255
+                        R1(config-if)#end
+                    </code></pre>
+                </div>
+                 <div class="router-image">
+                    <img src="Photo/image copy 2.png" alt="Vérification R1">
+                </div>
+            </div>
+            </div>
+            
+
+            
+            <div class="visual-content">
+                <img src="photo/image copy.png" alt="Topologie réseau">
+            </div>
+            
+        </div>
+
+        <a href="index.html" class="btn-back">Retour aux projets</a>
+    </section>
+</body>
+</html>

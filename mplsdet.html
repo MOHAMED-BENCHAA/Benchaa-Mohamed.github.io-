@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projet MPLS - Benchaa Mohamed</title>
+  <link rel="icon" type="image/png" href="Photo/MPLS.png">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .config-block {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 4rem;
+      align-items: flex-start;
+    }
+    .config-text {
+      flex: 1 1 400px;
+      background: #f9fafb;
+      padding: 1.5rem;
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      white-space: pre-line;
+      font-family: monospace;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+       background-color: rgb(214, 214, 214);
+    }
+    .about-text{
+        color: black;
+    }
+    .config-img {
+      flex: 1 1 300px;
+    }
+    .config-img img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .section-title{
+        margin-top: -90px;
+    }
+    
+  </style>
+</head>
+<body>
+  
+<nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Benchaa Mohamed<span class="dot">.</span></a>
+            <button class="burger" id="burger">
+            <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
+            <li><a href="index.html #about">À propos</a></li>
+            <li><a href="index.html #expertise">Expertise</a></li>
+            <li><a href="index.html #projects">Projets</a></li>
+            <li><a href="index.html #contact" class="btn-nav">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+ <header class="hero" style="
+  height: 2%;
+  padding: 5rem 0;
+  width:100%;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  color: white;
+  border-radius: 15px;
+  
+  ">
+  <div class="container" style="text-align: center;">
+    <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; margin-top:120px;">
+      Simulation <span style="color: #38bdf8;">MPLS</span>
+    </h1>
+    <p style="font-size: 1.2rem; color: #e0e0e0; max-width: 700px; margin: 0 auto;">
+      Étude d’une topologie à 8 routeurs avec configuration OSPF, MPLS, VRF, MP-BGP et routage statique.
+    </p>
+  </div>
+</header>
+
+
+
+  <!-- ta3 archi reseau -->
+  <section class="section">
+    <div class="container" style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;">
+      <!-- txt topologie t3 8-->
+      <div style="flex: 1 1 400px; margin-top: -1px;">
+        <h2 class="section-title">Architecture du réseau</h2>
+        <p class="about-text">
+          Topologie à 8 routeurs avec :
+        </p>
+        <ul class="about-text" style="margin-top: 1rem; line-height: 1.8;">
+          <li><strong>R1</strong> et <strong>R4</strong> : Routeurs <strong>P</strong> (Provider)</li>
+          <li><strong>R2</strong> et <strong>R3</strong> : Routeurs <strong>PE</strong> (Provider Edge)</li>
+          <li><strong>R5</strong>, <strong>R6</strong>, <strong>R7</strong>, <strong>R8</strong> : Routeurs <strong>CE</strong> (Customer Edge)</li>
+        </ul>
+      </div>
+
+      <!-- img topologie -->
+      <div style="flex: 1 1 400px; text-align: center;">
+        <img src="Photo/image copy.png" alt="Topologie MPLS" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-top: 200px;">
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: gray;">Image de la topologie réseau </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- configuration -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Configurations des Routeurs</h2>
+
+      <!-- configuration R1 -->
+      <div class="config-block">
+        <div class="config-text">
+            I.1. Configuration Pour Le Routeur R1 :
+
+            R1>enable  
+            R1#configuration terminal  
+            R1(config)#interface fastEthernet0/1  
+            R1(config-if)#ip address 100.12.0.1 255.255.255.252  
+            R1(config-if)#no shutdown  
+            R1(config-if)#exit  
+            R1(config)#interface fastEthernet0/0  
+            R1(config-if)#ip address 100.13.0.1 255.255.255.252  
+            R1(config-if)#no shutdown  
+            R1(config-if)#exit  
+            R1(config)#interface loopback0  
+            R1(config-if)#ip address 1.1.1.1 255.255.255.255  
+            R1(config-if)#end
+        </div>
+        <div class="config-img">
+          <img src="Photo/image copy 2.png" alt="Configuration R1">
+        </div>
+      </div>
+
+      <div class="config-block">
+        <div class="config-text">
+           VI. Configuration du protocole de routage :
+                Configuration Pour Le Routeur R1 :
+                R1#conf t R1(config)#router ospf 100
+                R1(config)#network 100.12.0.0 0.0.0.3 area 0
+                R1(config)#network 100.13.0.0 0.0.0.3 area 0
+                R1(config)#network 1.1.1.1 0.0.0.0 area 0
+                R1(config)#end
+           
+        </div>
+        <div class="config-img">
+          <img src="Photo/image copy 3.png" alt="Configuration R2">
+        </div>
+      </div>
+
+      <div class="config-block">
+        <div class="config-text">
+          Table de routage :
+           
+        </div>
+        <div class="config-img">
+          <img src="Photo/image copy 4.png" alt="Configuration R2">
+        </div>
+      </div>
+
+      <div class="config-block">
+        <div class="config-text">
+           VII. Configuration MPLS :
+           VII.1 Configuration Pour Le Routeur R1 :
+            R1>en R1#conf t
+            R1(config)#ip cef 
+            R1(config)#mpls ip
+            R1(config)#mpls label protocol ldp
+            R1(config)#mpls ldp router-id loopback 0 force R1(config)#int F0/1
+            R1(config-if)#mpls ip
+            R1(config-if)#exit
+            R1(config)#int F0/0 
+            R1(config-if)#mplsip
+            R1(config-if)#exit 
+            R1(config)#end
+           
+        </div>
+        <div class="config-img">
+          <img src="Photo/image copy 5.png" alt="Configuration R2">
+        </div>
+      </div>
+    
+      <div class="config-block">
+        <div class="config-text">
+           VIII. Configuration VRF :
+                VIII.1 Configuration Pour Le Routeur 02 (https://0.0.0.2/) :
+                    R2>en 
+                    R2#conf t
+                    R2(config)#ip vrf client-1
+                    R2(config-vrf)#rd 65000:1
+                    R2(config-vrf)#route-target export 65000:1
+                    R2(config-vrf)#route-target import 65000:1
+                    R2(config-vrf)#exit
+                    R2(config)#interface FastEthernet 2/0
+                    R2(config)#ip vrf forwarding client-2
+                    R2(config-vrf)#ip address 200.28.0.1 255.255.255.252
+                    R2(config-if)#no shutdown
+                    R2(config-vrf)#exit
+                    R2(config)#interface FastEthernet 0/0 R2(config)#ip vrf forwarding client-1
+                    R2(config-vrf)#ip address 200.27.0.1 255.255.255.252
+                    R2(config-if)#no shutdown
+                    R2(config-vrf)#exit
+                    R2(config)#end
+           
+        </div>
+        <div class="config-img">
+          <img src="Photo/image copy 6.png" alt="Configuration R2">
+        </div>
+      </div>
+
+      <div class="config-block">
+        <div class="config-text">
+           IX. Configuration MPBGP :
+                IX.1 Configuration Pour Le Routeur R1 :
+                    R2#enable 
+                    R2#conf t
+                    R2#conf t router bgp 65000
+                    R2(config-router)#neighbor 3.3.3.3
+                    remote-as 65000 
+                    R2(config-router)#neighbor3.3.3.3 update-source Loopback0 
+                    R2(config-router)#address-family vpnv4
+                    R2(config-router-af)#neighbor 3.3.3.3 activate
+                    R2(config-router-af)#neighbor 3.3.3.3 send-community extended
+                    R2(config-router-af)#exit
+                    R2(config)#router bgp 65000
+                    R2(config-router)#address-familyipv4 vrf client_1 
+                    R2(config-router-af)#redistribute connected R2(config-router-af)#exit
+                    R2(config)#router bgp 65000
+                    R2(config-router)#address-familyipv4
+                    vrf client_2 
+                    R2(config-router-af)#redistribute connected R2(config-router-af)#exit
+           
+        </div>
+        <div class="config-img">
+          <img src="Photo/image copy 7.png" alt="Configuration R2">
+        </div>
+      </div>
+
+      <div class="config-block">
+        <div class="config-text">
+          I.Configuration ROUTE :
+                X.1Configuration Pour Le Routeur R6 :
+                R6#enable 
+                R6#conf t
+                R6(config)#ip route 0.0.0.0 0.0.0.0 200.36.0.1 R6(config)#end
+           
+        </div>
+        <div class="config-img">
+          <img src="Photo/image copy 8.png" alt="Configuration R2">
+        </div>
+      </div>
+
+      <div class="config-block">
+        <div class="config-text">
+          
+            Ping :
+           
+        </div>
+        <div class="config-img">
+          <img src="Photo/image copy 9.png" alt="Configuration R2">
+        </div>
+      </div>
+
+
+
+
+    </div>
+    <a href="index.html#projects" class="btn-back">Retour aux projets</a>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2024 Benchaa Mohamed. Tous droits réservés.</p>
+    </div>
+  </footer>
+ <script src="script.js"></script>
+    <script>
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('nav-links');
+
+  burger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+</body>
+</html>

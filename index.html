@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benchaa Mohamed|Ingénieur Télécom & Développeur</title>
+    <link rel="icon" type="image/png" href="Photo/image.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS intégré pour la lisibilité - À déplacer dans style.css */
+        :root {
+            --primary: #2563EB;
+            --primary-dark: #1E40AF;
+            --secondary: #10B981;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Benchaa Mohamed<span class="dot">.</span></a>
+            <button class="burger" id="burger">
+            <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#contact" class="btn-nav">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">Benchaa Mohamed</span>
+                    <span class="title-line highlight">Ingénieur Télécom</span>
+                    <span class="title-line">& Développeur Front-End</span>
+                </h1>
+                <p class="hero-subtitle">Spécialiste MPLS • Administration Réseau • Solutions Web Performantes</p>
+                <a href="#projects" class="btn-hero">
+                    <span>Voir mes réalisations</span>
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+            <div class="hero-image">
+                <div class="tech-circle">
+                    <span class="tech-item">MPLS</span>
+                    <span class="tech-item">React</span>
+                    <span class="tech-item">Cisco</span>
+                    <span class="tech-item">HTML/CSS</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- À propos -->
+    <section id="about" class="section about"><section class="section animate">
+        <div class="container">
+            <div class="about-image">
+                <div class="image-border"></div>
+                <img src="Photo/IMG_9462 (5).jpg" alt="Benchaa Mohamed">
+            </div>
+            <div class="about-content">
+                <section class="section animate">
+                <h2 class="section-title">À propos de moi</h2>
+                <p class="about-text">
+                    Étudiant en <strong>Licence 3 Télécommunications</strong>, je combine expertise technique et créativité pour concevoir des solutions innovantes. Passionné par les infrastructures réseaux et le développement d'interfaces modernes.
+                </p>
+                <div class="about-details">
+                    <div class="detail-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <h3>Formation</h3>
+                            <p>Licence Télécommunications</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-code"></i>
+                        <div>
+                            <h3>Spécialités</h3>
+                            <p>Réseaux • Développement Front-End</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="Doc/Copie de Copie de CV.pdf " download class="btn-cv">
+                    <i class="fas fa-download"></i>
+                    Télécharger mon CV
+                </a></section>
+            </div>
+        </div></section>
+    </section>
+
+    <!-- Expertise -->
+    <section id="expertise" class="section expertise"><section class="section animate">
+        <div class="container">
+            <h2 class="section-title">Mon Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Réseaux & Télécom</h3>
+                    <ul>
+                        <li>MPLS</li>
+                        <li>Cisco Packet Tracer</li>
+                        <li>Wireshark</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Développement Web</h3>
+                    <ul>
+                        <li>HTML/CSS</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Gestion du temps</li>
+                        <li>Esprit d'équipe</li>
+                        <li>Communication</li>
+                    </ul>
+                </div>
+            </div>
+        </div></section>
+    </section>
+
+    <!-- Projets -->
+    <section id="projects" class="section projects"><section class="section animate">
+        <div class="container">
+            <h2 class="section-title">Mes Projets</h2>
+            <div class="project-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                
+            </div>
+            <div class="project-grid">
+    <!-- Projet MPLS -->
+    <div class="project-card" data-category="network">
+        <div class="project-image">
+            <img src="Photo/MPLS.webp" alt="Projet MPLS">
+            <div class="project-tag">Réseaux</div>
+        </div>
+        <div class="project-content">
+            <h3>Simulation MPLS</h3>
+            <p>Configuration avancée avec GNS3 et analyse de trafic avec Wireshark.</p>
+            <div class="project-tech">
+                <span>Cisco</span>
+                <span>GNS3</span>
+                <span>MPLS</span>
+            </div>
+            <a href="mplsdet.html" class="project-link">Voir détails →</a>
+        </div>
+    </div>
+
+    <!-- Projet React -->
+    <div class="project-card" data-category="web">
+        <div class="project-image">
+            <img src="Photo/cdgmlr.png" alt="Projet CodageMiller">
+            <div class="project-tag">Développement</div>
+        </div>
+        <div class="project-content">
+            <h3>CodageMiller</h3>
+            <p>Simulation d'un signal binaire avec génération de graphe et codage Python.</p>
+            <div class="project-tech">
+                <span> Python</span>
+                <span> Matplotlib</span>
+                <span> Rapport PDF</span>
+            </div>
+            <!-- Bouton "Voir détails" -->
+<a href="MLR.html" class="project-link">Voir détails →</a>
+
+
+        </div>
+    </div>
+
+    <!-- Nouveau Projet UI/UX -->
+    <div class="project-card" data-category="design">
+        <div class="project-image">
+            <img src="Photo/UI UX.png" alt="Projet UI/UX">
+            <div class="project-tag">Design</div>
+            </div>
+                    <div class="project-content">
+                        <h3>Application Mobile Fintech</h3>
+                        <p>Conception d'une interface utilisateur pour une application bancaire mobile.</p>
+                        <div class="project-tech">
+                            <span>Figma</span>
+                            <span>Adobe XD</span>
+                            <span>User Research</span>
+                        </div>
+                        <a href="UIUX.html" class="project-link">Voir détails →</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+   </section>
+    </section>
+    <!-- Contact -->
+    <section id="contact" class="section contact"><section class="section animate">
+        <div class="container">
+            <h2 class="section-title">Travaillons ensemble</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Disponible pour des opportunités</h3>
+                    <p>En recherche de stage ou collaboration freelance.</p>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>benchaa.mohamed04@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+213 5 55 81 27 43</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/mohamed-benchaa-6121a5292"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/MOHAMED-BENCHAA"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/mohamed.ben.614549?locale=fr_FR"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" action="https://formspree.io/f/xqabkaaw" method="POST" autocomplete="off">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Votre nom" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Votre email" required autocomplete="on">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Votre message" rows="5" required autocomplete="off"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        Envoyer le message
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+
+
+            </div>
+        </div></section>
+    </section>
+    <script>
+  const observerOptions = { threshold: 0.1 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+  document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+</script>
+
+<style>
+  .animate { opacity: 0; transform: translateY(30px); transition: all 1.8s ease; }
+  .animate.visible { opacity: 1; transform: translateY(0); }
+</style>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Benchaa Mohamed. Tous droits réservés.</p>
+            <a href="#" class="back-to-top">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('nav-links');
+
+  burger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page UI/UX - Benchaa Mohamed</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .section-title {
+      margin-bottom: 1.5rem;
+    }
+   
+    .uiux-block {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 4rem;
+      align-items: center;
+    }
+    .uiux-text {
+      flex: 1 1 400px;
+      background: #f9fafb;
+      padding: 1.5rem;
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .uiux-img {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+    .uiux-img img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    /* Animations */
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Pour les éléments qui apparaissent de côté */
+.animate-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-left.visible,
+.animate-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">Benchaa Mohamed<span class="dot">.</span></a>
+    <button class="burger" id="burger">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#about">À propos</a></li>
+      <li><a href="index.html#expertise">Expertise</a></li>
+      <li><a href="index.html#projects">Projets</a></li>
+      <li><a href="index.html#contact" class="btn-nav">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" style="height: auto; border-radius: 15px; padding: 5rem 0; background: linear-gradient(135deg, #0f172a, #1e3a8a); color: white;">
+  <div class="container" style="text-align: center; margin-top:70px;">
+    <h1 style="font-size: 2.5rem;">Page <span style="color: #38bdf8;">UI/UX</span> - Présentation visuelle</h1>
+    <p style="font-size: 1.1rem; color: #e0e0e0; max-width: 700px; margin: 0 auto;">
+      Concepts graphiques
+    </p>
+  </div>
+</header>
+<section class="section animate">
+    <div class="container">
+      <h2 class="section-title">ProteinBox - Application Mobile de Livraison de Repas Sains</h2>
+      <div class="uiux-block">
+        <div class="uiux-text">
+          <p>
+            Ce projet présente le prototype d'une application mobile de livraison de repas sains réalisé avec Figma. L'application ProteinBox propose une interface simple et épurée permettant aux utilisateurs de :
+
+              parcourir un menu varié de repas équilibrés,
+
+              consulter les détails nutritionnels des plats,
+
+              ajouter des repas au panier,
+
+              finaliser leur commande en toute simplicité.
+
+              Le design met l'accent sur une navigation fluide, des couleurs apaisantes et une expérience utilisateur optimisée sur mobile.
+          </p>
+        </div>
+        <div class="uiux-img">
+          <img src="Photo/design.png" alt="Style UI Codage Miller">
+          <p style="color: gray; font-size: 0.9rem;">ProteinBox(Prototype Figma)</p>
+        </div>
+      </div></section>
+    </div>
+<section class="section animate">
+    <h2 class="section-title">Logo de ProteinBox - Identité Visuelle pour Application Mobile de Repas Sains</h2>
+    <div class="uiux-block">
+      <div class="uiux-text">
+        <p>
+          Ce logo représente l'identité visuelle de l'application ProteinBox, un service de livraison de repas sains et équilibrés. Le design combine des éléments symbolisant la nutrition et la forme physique :
+
+          une silhouette musclée illustrant la force et la santé,
+
+          des feuilles vertes évoquant la fraîcheur et la naturalité des ingrédients,
+
+          des ustensiles (fourchette et cuillère) intégrés au graphisme pour rappeler la gastronomie.
+
+          Le choix des couleurs (vert et noir) renforce l'image de vitalité, d'équilibre et de qualité nutritionnelle que souhaite véhiculer la marque..
+        </p>
+      </div>
+      <div class="uiux-img">
+        <img src="Photo/logooo.png" alt="Style UI MPLS">
+        <p style="color: gray; font-size: 0.9rem;">Logo de ProteinBox </p>
+      </div>
+    </div>
+    </section>
+    <a href="index.html#projects" class="btn-back"><i class="fas fa-arrow-left"></i> Retour aux projets</a>
+  </div>
+</section>
+ <script src="script.js"></script>
+    <script>
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('nav-links');
+
+  burger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+<footer class="footer">
+  <div class="container">
+    <p>© 2025 Benchaa Mohamed. Tous droits réservés.</p>
+  </div>
+</footer>
+<!-- Animation  -->
+<script>
+  // Animation
+const observerOptions = { 
+  threshold: 0.3,
+  rootMargin: '0px 0px -50px 0px' 
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Optionnel: arrêter d'observer après l'animation
+      // observer.unobserve(entry.target);
+    } else {
+      // Optionnel: retirer la classe si l'élément n'est plus visible
+      // entry.target.classList.remove('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.animate, .animate-left, .animate-right').forEach(el => {
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

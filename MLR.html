@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Codage Miller - Benchaa Mohamed</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .code-block {
+      background: #f1f5f9;
+      padding: 1.5rem;
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      white-space: pre-wrap;
+      font-family: monospace;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      overflow-x: auto;
+    }
+    .section-title {
+  margin-bottom: 1.5rem !important; /* réduit l'espace en dessous */
+  margin-top: 0 !important;        /* supprime tout espace au-dessus si existant */
+}
+
+    .btn-back, .btn-download {
+      background: var(--primary);
+      color: white;
+      padding: 0.8rem 1.8rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      margin: 2rem 1rem 0 0;
+    }
+    .btn-back:hover, .btn-download:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    .section img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  
+<nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Benchaa Mohamed<span class="dot">.</span></a>
+            <button class="burger" id="burger">
+            <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
+            <li><a href="index.html #about">À propos</a></li>
+            <li><a href="index.html #expertise">Expertise</a></li>
+            <li><a href="index.html #projects">Projets</a></li>
+            <li><a href="index.html #contact" class="btn-nav">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+<header class="hero" style="height: auto; border-radius: 15px; padding: 5rem 0; background: linear-gradient(135deg, #0f172a, #1e3a8a); color: white;">
+  <div class="container" style="text-align: center; margin-top:70px;">
+    <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 1rem;">Projet <span style="color: #38bdf8;">Codage Miller</span></h1>
+    <p style="font-size: 1.2rem; color: #e0e0e0; max-width: 700px; margin: 0 auto;">
+      Simulation et visualisation d’un signal binaire encodé avec la méthode Miller.<br>
+      Codage en Python, génération de graphes, et résumé technique.
+    </p>
+  </div>
+</header>
+
+
+<section class="section animate">
+  <div class="container">
+    <h2 class="section-title">Présentation du projet</h2>
+    <p>
+      Le <strong>codage Miller</strong> est une méthode de codage en ligne utilisée pour transmettre des données binaires 
+      en bande de base. Il est utilisé dans les technologies <strong>RFID, NFC</strong>, la transmission de données sur câble, 
+      ou encore les enregistrements magnétiques. Ce projet vise à simuler ce codage à l’aide de Python et Matplotlib.
+    </p>
+  </div>
+</section>
+
+<section class="section animate">
+  <div class="container">
+    <h2 class="section-title">Graphe du signal codé</h2>
+    <div style="display: flex; justify-content: center; text-align: center;">
+  <img src="Photo/graphemlr.png" alt="Graphe Miller"
+       style="max-width: 100%; width: 700px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+</div>
+
+    <p style="text-align:center; color:gray; margin-top:0.5rem;">Visualisation du signal codé avec transitions et horloge</p>
+  </div>
+</section>
+
+<section class="section animate">
+  <div class="container">
+    <h2 class="section-title">Code Python utilisé</h2>
+    <div class="code-block">
+import matplotlib.pyplot as plt
+import numpy as np
+
+def miller_encode(bits):
+    amplitude = []
+    clock = []
+    time_points = []
+    transitions = []
+    current_level = 1
+    prev_bit = None
+    time = 0
+
+    for bit in bits:
+        if bit == 1:
+            amplitude.extend([current_level, -current_level])
+            transitions.extend([0, 1])
+            current_level = -current_level
+        else:
+            if prev_bit == 0:
+                amplitude.extend([-current_level, current_level])
+                transitions.extend([0, 1])
+                current_level = -current_level
+            else:
+                amplitude.extend([current_level, current_level])
+                transitions.extend([0, 0])
+        clock.extend([1, 0])
+        time_points.extend([time, time + 0.5])
+        time += 1
+        prev_bit = bit
+
+    return (np.array(time_points), np.array(amplitude), np.array(clock), np.array(transitions))
+
+d = [0,0,1,0,0,0,0,1,0,0,1,1,1,0,1,1,1,0,1,1,1,0,1,0]
+time, amplitude, clock, transitions = miller_encode(d)
+
+# Affichage graphique
+plt.figure(figsize=(12, 6))
+plt.subplot(3, 1, 1)
+plt.stem(time, transitions, linefmt='g-', markerfmt='go')
+plt.title('Transitions')
+plt.subplot(3, 1, 2)
+plt.step(time, clock, where='post', color='purple')
+plt.title('Horloge')
+plt.subplot(3, 1, 3)
+plt.step(time, amplitude, where='post', color='black')
+plt.title('Signal Miller')
+plt.tight_layout()
+plt.show()
+    </div>
+
+    <a href="Miller.py" download class="btn-download"><i class="fas fa-code"></i> Télécharger le code Python</a>
+  </div>
+</section>
+
+<section class="section animate">
+  <div class="container">
+    <h2 class="section-title">Résumé du rapport</h2>
+    <ul style="line-height:2;">
+      <li>✅ Codage sans composante continue</li>
+      <li>✅ Réduction de la bande passante</li>
+      <li>✅ Bonne synchronisation même avec longue suite de bits</li>
+      <li>⚠️ Sensibilité à l’inversion de polarité</li>
+      <li>⚠️ Taux d’erreurs plus élevé que d’autres codages (Manchester)</li>
+    </ul>
+
+    <a href="CodageMiller.pdf" download class="btn-download"><i class="fas fa-file-pdf"></i> Télécharger le rapport PDF</a>
+    <a href="index.html#projects" class="btn-back"><i class="fas fa-arrow-left"></i> Retour aux projets</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2024 Benchaa Mohamed. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<!-- Animation  -->
+<script>
+  const observerOptions = { threshold: 0.1 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+  document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+</script>
+
+<style>
+  .animate { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+  .animate.visible { opacity: 1; transform: translateY(0); }
+</style>
+ <script src="script.js"></script>
+    <script>
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('nav-links');
+
+  burger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+</body>
+</html>
